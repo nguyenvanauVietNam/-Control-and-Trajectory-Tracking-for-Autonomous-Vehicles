@@ -33,9 +33,9 @@ void PID::Init(double Kpi, double Kii, double Kdi, double output_lim_maxi, doubl
     // p_error = Kp * (setpoint - actual_value);
     // i_error = Ki * (int_cte += (setpoint - actual_value) * dt);
     // d_error = Kd * ((setpoint - actual_value) - (prev_cte - actual_value) / dt);
-    p_error = 0.0;
-    i_error = 0.0;
-    d_error = 0.0;
+    // p_error = 0.0;
+    // i_error = 0.0;
+    // d_error = 0.0;
     // Initialize PID output limits
     // output_lim_maxi, output_lim_mini
    output_lim_maxi = output_lim_maxi;
@@ -63,7 +63,7 @@ double PID::TotalError() {
    * TODO: Calculate and return the total error
     * The code should return a value in the interval [output_lim_mini, output_lim_maxi]
    */
-    double control = 0.0;//Default Output
+    double control = 0;//Default Output
 
      // Calculate the total control output reference section 1 PID Control in Udacity
      control = Kp * p_error + Ki * i_error + Kd * d_error;

@@ -237,9 +237,8 @@ int main ()
   // url: https://www.ni.com/en/shop/labview/pid-theory-explained.html
 
   //init pid steer
-  pid_steer.Init(0.1, 0.001, 0.0001, 1.0, -1.0); //Kp = 0.1, Ki = 0.001, Kd = 0.0001
-  //init pid throttle
-  pid_throttle.Init(0.1, 0.001, 0.0001, 1.0, -1.0); //Kp = 0.1, Ki = 0.001, Kd = 0.0001
+  pid_steer.Init(0.3, 0.0005, 0.35, 1.0, -1.0);//Kp = 0.3, Ki = 0.0005, Kd = 0.35
+  pid_throttle.Init(0.1, 0.0005, 0.15, 0.8, -0.8); //Kp = 0.1, Ki = 0.0005, Kd = 0.15
 
   h.onMessage([&pid_steer, &pid_throttle, &new_delta_time, &timer, &prev_timer, &i, &prev_timer](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode)
   {
@@ -316,15 +315,24 @@ int main ()
           //           error_steer = 0;
 
           // Calculate the desired yaw angle based on the last two points in the trajectory
+          
+          //Fix issue Udacity review round 1
+          int closest_point_index  = closest_point(x_position, y_position, x_points, y_points); // Get the index of the closest point in the trajectory
+          
+          // double target_yaw = angle_between_points(
+          //     x_points.back(), 
+          //     y_points.back(), 
+          //     x_points[x_points.size() - 2], 
+          //     y_points[y_points.size() - 2]
+          // );
           double target_yaw = angle_between_points(
-              x_points.back(), 
-              y_points.back(), 
-              x_points[x_points.size() - 2], 
-              y_points[y_points.size() - 2]
+              x_position, 
+              y_position, 
+              x_points[closest_point_index], 
+              y_points[closest_point_index]
           );
           // Calculate the steering error by finding the difference between the target yaw and the current yaw
-          error_steer = target_yaw - yaw;  // The difference between desired and current yaw determines the steering adjustment needed
-
+          error_steer = normalize(target_yaw - yaw); //using normalize to make it between -1 and 1
 
           /**
           * TODO (step 3): uncomment these lines
@@ -358,14 +366,14 @@ int main ()
           * TODO (step 2): compute the throttle error (error_throttle) from the position and the desired speed
           **/
           // modify the following line for step 2
-          error_throttle = 0;
+          //error_throttle = 0;
 
-          double throttle_output = 0.0 ;
-          double brake_output = 0.0;
+          double throttle_output;
+          double brake_output;
           // Get the desired velocity from the last point in the v_points vector, which represents the target speed
-          double target_velocity = v_points.back(); // The last element in the v_points vector represents the desired speed
+          //double target_velocity = v_points.back(); // The last element in the v_points vector represents the desired speed
           // Calculate the throttle error as the difference between the target velocity and the current velocity
-          error_throttle = target_velocity - velocity; // The difference indicates how much the throttle needs to be adjusted
+          error_throttle = v_points[closest_point_index] - velocity; //Fix issue by reviewer comment
 
           /**
           * TODO (step 2): uncomment these lines

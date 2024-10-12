@@ -52,15 +52,15 @@ public:
     */
 
     //Delarce the maximum and minimum output values
-    double output_lim_max = 0.0;//Maximum output value
-    double output_lim_min = 0.0;  //Minimum output value
+    double output_lim_max ;//Maximum output value
+    double output_lim_min ;  //Minimum output value
 
 
     /*
     * Delta time
     */
     //Declare the delta time
-    double delta_time = 0.0; //Time interval between each update of the PID controller
+    double delta_time ; //Time interval between each update of the PID controller
     //double prev_cte = 0.0; //Previous cross track error
 
     /*

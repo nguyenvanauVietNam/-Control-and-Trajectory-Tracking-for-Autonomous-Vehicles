@@ -227,7 +227,6 @@ Re-check the rubric in the classroom and ensure that your submission satisfies a
 
 ## Reference 
  - https://github.com/udacity/nd013-c6-control-starter
- - https://github.com/RuchitJathania/Control-and-Trajectory-Tracking-for-Autonomous-Vehicles/tree/main/project
  - https://github.com/RuchitJathania/Control-and-Trajectory-Tracking-for-Autonomous-Vehicles
 
 # video Reference

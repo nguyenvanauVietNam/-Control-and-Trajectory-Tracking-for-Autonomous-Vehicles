@@ -223,3 +223,16 @@ kill id
 ## Step 8. Check the Rubric and Submit
 
 Re-check the rubric in the classroom and ensure that your submission satisfies all rubric criteria to pass the project. Once you are confident, submit the project. 
+
+
+## Reference 
+ - https://github.com/udacity/nd013-c6-control-starter
+ - https://github.com/RuchitJathania/Control-and-Trajectory-Tracking-for-Autonomous-Vehicles/tree/main/project
+ - https://github.com/RuchitJathania/Control-and-Trajectory-Tracking-for-Autonomous-Vehicles
+
+# video Reference
+ - https://www.youtube.com/playlist?list=PL05umP7R6ij321zzKXK6XCQXAaaYjQbzr
+ - https://www.youtube.com/watch?v=kVYy2kjZjhA
+ - https://www.youtube.com/watch?v=0PO0DbaaFKI&t=1s
+ - https://www.youtube.com/watch?v=TCLZqVD__RI
+ - https://www.youtube.com/watch?v=2KJ7iJ7rCPY&t=7s

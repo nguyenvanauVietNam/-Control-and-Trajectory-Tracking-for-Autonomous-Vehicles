@@ -64,15 +64,18 @@ double PID::TotalError() {
     * The code should return a value in the interval [output_lim_mini, output_lim_maxi]
    */
     double control = 0;//Default Output
-
+    
      // Calculate the total control output reference section 1 PID Control in Udacity
      control = Kp * p_error + Ki * i_error + Kd * d_error;
+     //delta_time = 1.0;
      // Clamp the control output to the specified limits
     if (control > output_lim_max) //Check if control is greater than output_lim_max
     {
         control = output_lim_max; 
     }
-    else if (control < output_lim_min) //Check if control is less than output_lim_min
+    //else if (control < output_lim_min) //Check if control is less than output_lim_min
+    //Fix bug steer is zero
+    if (control < output_lim_min)
     {
         control = output_lim_min;
     }

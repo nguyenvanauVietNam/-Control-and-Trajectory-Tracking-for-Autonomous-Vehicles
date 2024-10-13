@@ -110,9 +110,9 @@ These are the files where you will implement the PID controller logic. The `pid`
      ```bash
      python3 plot_pid.py
       ```
-![Result sample](project\pid_controller\screenshot\Screenshot 2024-10-13 071859.png)
-![Result sample](project\pid_controller\screenshot\Screenshot 2024-10-13 072254.png)      
-![Result sample](project\pid_controller\screenshot\Screenshot 2024-10-13 072934.png) 
+![Result sample](project/pid_controller/screenshot/Screenshot 2024-10-13 071859.png)
+![Result sample](project\pid_controller/screenshot/Screenshot 2024-10-13 072254.png)      
+![Result sample](project/pid_controller/screenshot/Screenshot 2024-10-13 072934.png) 
 
    **Note:** If needed, install additional Python modules:  
    ```bash
